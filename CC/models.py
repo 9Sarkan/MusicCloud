@@ -6,7 +6,7 @@ def current_year():
 
 class genre(models.Model):
     genre = models.CharField(primary_key = True, max_length = 30)
-    img = models.ImageField(verbose_name= 'Cover of Genre')
+    img = models.ImageField(upload_to = 'genreCover/', verbose_name= 'Cover of Genre')
 
     def __str__(self):
         return self.genre
@@ -19,7 +19,7 @@ class artist(models.Model):
 
 class ArtistImg(models.Model):
     artist = models.ForeignKey(artist, on_delete = models.CASCADE, related_name = 'artist')
-    img = models.ImageField(verbose_name='Image')
+    img = models.ImageField(upload_to = 'artist/', verbose_name='Image')
 
     def __str__(self):
         return "Photo : {}".format(self.artist.name)
@@ -41,7 +41,7 @@ class album(models.Model):
 
 class cover(models.Model):
     artist = models.ForeignKey(artist, on_delete = models.SET_NULL, null = True)
-    img = models.ImageField(verbose_name= 'Cover')
+    img = models.ImageField(upload_to = 'Covers/', verbose_name= 'Cover')
 
     def __str__(self):
         return "Cover of : {}".format(self.artist.name)
