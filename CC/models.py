@@ -53,10 +53,12 @@ class song(models.Model):
     album = models.ForeignKey(album, on_delete = models.SET_NULL, blank = True, null = True)
     genre = models.ForeignKey(genre, on_delete = models.CASCADE)
     mp3 = models.FileField(upload_to = 'Sounds/', verbose_name= 'MP3', help_text = 'Music mp3 file')
+    date = models.DateField(auto_now=True)
 
     def __str__(self):
         return "{0} - {1}".format(self.title, self.artist.name)
 
     class Meta:
         unique_together = (('artist', 'title'),)
+        ordering = ('date',)
 

@@ -1,9 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from . import serializers
 from . import models
 from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework.response import Response
+
+from django.views import generic
 
 class AllSongApi(APIView):
     def get(self, requset, format = None):
@@ -24,4 +26,29 @@ class SongApi(APIView):
         serial = serializers.SongSerializer(s)
         return Response(serial.data)
 
+class MainPage(generic.ListView):
+    model = models.song
+    paginate_by = 20
+    template_name = 'index.html'
 
+    def get_context_data(self, **kwargs):
+        context = super(MainPage, self).get_context_data(**kwargs)
+        top = models.song.objects.all().order_by('date')
+        context.update({
+            'top' : top,
+        })
+        return context
+    
+
+class SongPage(generic.ListView):
+    model = models.song
+    template_name = 'track.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(SongPage, self).get_context_data(**kwargs)
+        song = get_object_or_404(models.song, pk = self.kwargs['songId'])
+        context.update({
+            'song':song,
+            'album' : song.album,
+        })
+        return context
