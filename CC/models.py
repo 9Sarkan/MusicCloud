@@ -4,10 +4,6 @@ import datetime
 def current_year():
     return datetime.date.today().year
 
-def year_choice(): 
-    lst = [(r,r) for r in range(1930, datetime.date.today().year + 1)]
-    return tuple(lst)
-
 class genre(models.Model):
     genre = models.CharField(primary_key = True, max_length = 30)
     img = models.ImageField(verbose_name= 'Cover of Genre')
@@ -31,7 +27,7 @@ class ArtistImg(models.Model):
 class album(models.Model):
     artist = models.ForeignKey(artist, on_delete = models.SET_NULL, null = True)
     title = models.CharField(max_length = 100)
-    year = models.IntegerField(choices = year_choice ,default = current_year)
+    year = models.IntegerField(default = current_year)
     language = models.CharField(max_length = 20)
     genre = models.ForeignKey(genre, on_delete = models.CASCADE)
     number = models.IntegerField(verbose_name = '#', help_text='Count of songs')
