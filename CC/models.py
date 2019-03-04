@@ -47,7 +47,7 @@ class cover(models.Model):
         return "Cover of : {}".format(self.artist.name)
 
 class song(models.Model):
-    artist = models.ForeignKey(artist, on_delete = models.SET_NULL, null = True)
+    artist = models.ForeignKey(artist, on_delete = models.SET_NULL, null = True, related_name = 'tracks')
     title = models.CharField(max_length = 40)
     cover = models.ForeignKey(cover, on_delete = models.SET_NULL, null = True)
     album = models.ForeignKey(album, on_delete = models.SET_NULL, blank = True, null = True)
