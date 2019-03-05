@@ -47,8 +47,14 @@ class SongPage(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super(SongPage, self).get_context_data(**kwargs)
         song = get_object_or_404(models.song, pk = self.kwargs['songId'])
+        try:
+            album = models.album.objects.get(id = song.album.id)
+            tracks = album.tracks.all()
+        except models.album.DoesNotExist:
+            album = 'Single'
         context.update({
             'song':song,
-            'album' : song.album,
+            'album' : album,
+            'tracks' : tracks,
         })
         return context
