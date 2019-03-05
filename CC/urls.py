@@ -4,4 +4,5 @@ from . import views
 urlpatterns = [
     path('AllSongApi', views.AllSongApi.as_view(), name = 'AllSongApi'),
     path('track/<int:pk>', views.SongApi.as_view(), name = 'SongApi'),
+    path('', views.MainPage.as_view(), name = 'MainPage'),
 ]

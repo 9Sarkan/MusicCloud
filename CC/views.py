@@ -34,8 +34,17 @@ class MainPage(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super(MainPage, self).get_context_data(**kwargs)
         top = models.song.objects.all().order_by('date')
+        mustStreamSong = models.song.objects.all().order_by('StreamCount')
+        mustStreamAlbum = models.album.objects.all().order_by('StreamCount')
+        artists = models.artist.objects.all()
+        gallery = models.cover.objects.all()
         context.update({
             'top' : top,
+            'newest' : top[0],
+            'mustSS':mustStreamSong,
+            'mustSA' : mustStreamAlbum,
+            'gallery' : gallery, 
+            'artists' : artists,
         })
         return context
     

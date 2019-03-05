@@ -6,7 +6,7 @@ def current_year():
 
 class genre(models.Model):
     genre = models.CharField(primary_key = True, max_length = 30)
-    img = models.ImageField(upload_to = 'genreCover/', verbose_name= 'Cover of Genre')
+    img = models.ImageField(upload_to = 'media/genreCover/', verbose_name= 'Cover of Genre')
 
     def __str__(self):
         return self.genre
@@ -31,6 +31,7 @@ class album(models.Model):
     language = models.CharField(max_length = 20)
     genre = models.ForeignKey(genre, on_delete = models.CASCADE)
     number = models.IntegerField(verbose_name = '#', help_text='Count of songs')
+    StreamCount = models.IntegerField(verbose_name= 'Stream Count')
 
     def __str__(self):
         return "{0} - {1}".format(self.title, self.artist.name)
@@ -41,7 +42,7 @@ class album(models.Model):
 
 class cover(models.Model):
     artist = models.ForeignKey(artist, on_delete = models.SET_NULL, null = True)
-    img = models.ImageField(upload_to = 'Covers/', verbose_name= 'Cover')
+    img = models.ImageField(upload_to = 'media/Covers/', verbose_name= 'Cover')
 
     def __str__(self):
         return "Cover of : {}".format(self.artist.name)
@@ -52,8 +53,9 @@ class song(models.Model):
     cover = models.ForeignKey(cover, on_delete = models.SET_NULL, null = True)
     album = models.ForeignKey(album, on_delete = models.SET_NULL, blank = True, null = True, related_name = 'tracks')
     genre = models.ForeignKey(genre, on_delete = models.CASCADE)
-    mp3 = models.FileField(upload_to = 'Sounds/', verbose_name= 'MP3', help_text = 'Music mp3 file')
+    mp3 = models.FileField(upload_to = 'media/Sounds/', verbose_name= 'MP3', help_text = 'Music mp3 file')
     date = models.DateField(auto_now=True)
+    StreamCount = models.IntegerField(verbose_name= 'Stream Count')
 
     def __str__(self):
         return "{0} - {1}".format(self.title, self.artist.name)
