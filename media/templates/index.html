@@ -1,0 +1,245 @@
+{% extends 'shared/masterpage.html' %}
+{% load static %}
+{% block title %}{{block.super}}Main Page{% endblock %}
+{% block head %}{% endblock %}
+{% block body %}
+<!-- big-home-slider -->
+<div class="big-home-slider">
+    <ul>
+        <li class="starting-slide">
+            <div class="slide-content">
+                <div class="image">
+                    <img src={% static "images/gallery/slides/slide1.jpg" %} />
+                </div>
+
+                <div class="slide-content-inner">
+                    <h1 class="animated fadeInDown">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</h1>
+
+                    <p class="animated fadeInUp">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
+
+                    <div class="button">
+                        <a class="animated fadeInLeft" href="#">بیشتر بدانید</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <li>
+            <div class="slide-content">
+                <div class="image">
+                    <img src={% static "images/gallery/slides/slide2.jpg" %} />
+                </div>
+
+                <div class="slide-content-inner">
+                    <h1>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم </h1>
+
+                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
+
+                    <div class="button">
+                        <a href="#">بیشتر بدانید</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="big-home-slider-pager"></div>
+    <div class="big-home-slider-controls">
+        <div id="prev"></div>
+        <div id="next"></div>
+    </div>
+</div>
+<!-- big-home-slider -->
+<!-- audio-player -->
+<div class="audio-player">
+    <div class="container">
+        <div class="player">
+            <audio id="player" controls="controls">
+                <source src="{{ newest.mp3.url }}" type="audio/mpeg" />						
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
+            </audio>
+        </div>
+    </div>
+</div>
+<!-- audio-player -->
+<div class="main clearfix">
+    <aside class="categories">
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">
+                        <i class="li_music"></i>
+                        <span>
+آهنگ های محبوب
+</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="li_vynil"></i>
+                        <span>
+آلبوم های محبوب
+</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="li_user"></i>
+                        <span>هنرمندان ما</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="li_calendar"></i>
+                        <span>
+کنسرت بعدی & حوادث
+</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="li_photo"></i>
+                        <span>گالری</span>
+                    </a>
+                </li>
+                <div class="clear"></div>
+            </ul>
+        </nav>
+    </aside>
+
+    <div class="wrapper">
+        <div class="page-header page-header-home clearfix">
+            <div class="col-md-4 col-sm-6">
+                <div class="search">
+                    <form action="#">
+                        <input type="text" x-webkit-speech>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-8 col-sm-6">
+                <div class="title-display">
+                    <h3 class="title">
+محبوب ترین ها
+</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="container-fluid no-horizontal-padding">
+                <div class="articles articles-audio">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 article">
+                            <a href="#">
+                                <div class="image" data-audio="http://audiosharesite.com/adata/583672/Noizy%20-%201%20Shans%202014.mp3">
+                                    <div class="overlay">
+                                        <div class="play-icon">
+                                            <i class="fa fa-play-circle-o"></i>
+                                            
+                                        </div>
+                                        <div class="loading">
+                                            <i class="fa fa-spinner fa-spin"></i>
+                                        </div>
+                                    </div>
+                                    <img src={% static "images/gallery/thumbnails/1.jpg" %} alt="">
+                                </div>
+                            </a>
+                            <h3 class="title"><a href="#">تصور غلط</a></h3>
+                            <span class="info">
+
+لورم ایپسوم یا طرح‌نما</span>
+                        </div>
+
+                        <div class="col-md-3 col-sm-6 article">
+                            <a href="#">
+                                <div class="image" data-audio="http://audiosharesite.com/adata/583672/2TON%20feat.%20SKIVI%20-%20ATO%202014.mp3">
+                                    <div class="overlay">
+                                        <div class="play-icon">
+                                            <i class="fa fa-play-circle-o"></i>
+                                            
+                                        </div>
+                                        <div class="loading">
+                                            <i class="fa fa-spinner fa-spin"></i>
+                                        </div>
+                                    </div>
+                                    <img src={% static "images/gallery/thumbnails/2.jpg" %} alt="">
+                                </div>
+                            </a>
+                            <h3 class="title"><a href="#">تصور غلط</a></h3>
+                            <span class="info">
+
+لورم ایپسوم</span>
+                        </div>
+
+                        <div class="col-md-3 col-sm-6 article">
+                            <a href="#">
+                                <div class="image" data-audio="http://audiosharesite.com/adata/583672/2TON%20feat.%20SKIVI%20-%20ATO%202014.mp3">
+                                    <div class="overlay">
+                                        <div class="play-icon">
+                                            <i class="fa fa-play-circle-o"></i>
+                                            
+                                        </div>
+                                        <div class="loading">
+                                            <i class="fa fa-spinner fa-spin"></i>
+                                        </div>
+                                    </div>
+                                    <img src={% static "images/gallery/thumbnails/3.jpg" %} alt="">
+                                </div>
+                            </a>
+                            <h3 class="title"><a href="#">تصور غلط</a></h3>
+                            <span class="info">
+
+لورم ایپسوم</span>
+                        </div>
+
+                        <div class="col-md-3 col-sm-6 article">
+                            <a href="#">
+                                <div class="image" data-audio="http://audiosharesite.com/adata/583672/Noizy%20-%201%20Shans%202014.mp3">
+                                    <div class="overlay">
+                                        <div class="play-icon">
+                                            <i class="fa fa-play-circle-o"></i>
+                                            
+                                        </div>
+                                        <div class="loading">
+                                            <i class="fa fa-spinner fa-spin"></i>
+                                        </div>
+                                    </div>
+                                    <img src={% static "images/gallery/thumbnails/4.jpg" %} alt="">
+                                </div>
+                            </a>
+                            <h3 class="title"><a href="#">تصور غلط</a></h3>
+                            <span class="info">
+
+لورم ایپسوم</span>
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="pagination pull-left">
+                    <li><a href="#">&laquo;</a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{% block scripts %}
+<script src={% static "js/core/jquery-1.11.0.min.js" %}></script>
+<script src={% static "js/core/bootstrap.min.js" %}></script>
+
+<script src={% static "js/plugins/html5slider.js" %}></script>
+<script src={% static "js/plugins/mediaelement-and-player.min.js" %}></script>
+<script src={% static "js/plugins/jquery.bxslider.min.js" %}></script>
+<script src={% static "js/plugins/jquery.removeWhitespace.min.js" %}></script>
+<script src={% static "js/plugins/jquery.collagePlus.min.js" %}></script>
+
+<script src={% static "js/scripts/audio.js" %}></script>
+<script src={% static "js/scripts/init.js" %}></script>
+<script src={% static "js/scripts/main.js" %}></script>
+{% endblock %}
